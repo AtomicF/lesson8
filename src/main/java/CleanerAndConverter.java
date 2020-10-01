@@ -10,7 +10,7 @@ public class CleanerAndConverter implements Editor {
             mapEditor.cleanMap((Map) firstParameter, fieldsToCleanup, fieldsToOutput);
         } else {
             ObjectEditor objectEditor = new ObjectEditor();
-            objectEditor.cleanMap(firstParameter, fieldsToCleanup, fieldsToOutput);
+            objectEditor.cleanObject(firstParameter, fieldsToCleanup, fieldsToOutput);
         }
     }
 }

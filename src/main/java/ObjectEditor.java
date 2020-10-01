@@ -1,21 +1,30 @@
 import java.lang.reflect.Field;
-import java.lang.reflect.Type;
 import java.util.Set;
 
 public class ObjectEditor {
 
-    public void cleanMap(Object object, Set<String> fieldsToCleanup, Set<String> fieldsToOutput) {
+    public void cleanObject(Object object, Set<String> fieldsToCleanup, Set<String> fieldsToOutput) {
         Field[] fields = object.getClass().getDeclaredFields();
+        boolean bol = false;
         for (Field field : fields) {
-            Class type = field.getType();
-            defaultValue(object, field, type);
-
+            defaultValue(object, field);
+            if (fieldsToOutput.contains(field)) {
+                bol = true;
+            } else {
+                throw new IllegalArgumentException("Совпадений поля: " + field.getName() + " не найдено");
+            }
+            if (fieldsToOutput.contains(field) && bol) {
+                Class type = field.getType();
+                if (type.isPrimitive()) {
+                    String.valueOf(field);
+                } else {
+                    field.toString();
+                }
+            }
         }
-        
-
     }
 
-    private void defaultValue(Object object, Field field, Type type) {
+    private void defaultValue(Object object, Field field) {
         try {
             switch (field.getClass().getTypeName()) {
                 case "int":
