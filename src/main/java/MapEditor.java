@@ -1,6 +1,10 @@
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Класс выполняет сравнение ключами Map
+ */
+
 public class MapEditor {
 
     public void cleanMap(Map<String, ?> map, Set<String> fieldsToCleanup, Set<String> fieldsToOutput) {

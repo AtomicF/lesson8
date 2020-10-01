@@ -4,10 +4,11 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Если args[0] = 0, то программа читает с
+ * Если args[0] = 0, то программа работает с мапой
+ * Если args[1] = 1, то с объектомц
  */
 public class Main {
-    public static void main(String[] args) throws IllegalAccessException {
+    public static void main(String[] args) {
 
         Person person = new Person();
         CleanerAndConverter cleanerAndConverter = new CleanerAndConverter();

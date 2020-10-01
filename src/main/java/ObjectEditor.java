@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * Класс выполняет сравнение с полями объекта
+ */
 public class ObjectEditor {
 
     public void cleanObject(Object object, Set<String> fieldsToCleanup, Set<String> fieldsToOutput) {
@@ -39,6 +42,11 @@ public class ObjectEditor {
         }
     }
 
+    /**
+     * Метод определяет тип поля и выставляет его дефолтное значение
+     * @param object - объект, поля которого проверяются
+     * @param field - поле в которое устанавливается значение по умолчанию
+     */
     private void defaultValue(Object object, Field field) {
         try {
             switch (field.getType().toString()) {
@@ -75,6 +83,13 @@ public class ObjectEditor {
         }
     }
 
+    /**
+     * Метод определяет тип переменной строки и преобразует его в строковый тип
+     * @param object - объект, поля которого проверяются
+     * @param field - поле которое преобразуется в строку
+     * @return - возвращает строку в зависимости от типа поля
+     * @throws IllegalAccessException
+     */
     private String valueToString(Object object, Field field) throws IllegalAccessException {
         switch (field.getClass().getTypeName()) {
             case "int":
