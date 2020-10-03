@@ -14,7 +14,7 @@ public class ObjectEditor {
         Field[] fields = object.getClass().getDeclaredFields();
 
         List<String> names = new ArrayList<>();
-        Arrays.stream(fields).sequential().map(Field::getName).collect(Collectors.toCollection(()->names));
+        Arrays.stream(fields).sequential().map(Field::getName).collect(Collectors.toCollection(() -> names));
         for (String field : fieldsToCleanup) {
             if (!names.contains(field)) {
                 throw new IllegalArgumentException("В объекте отсутствуют нужные поля");

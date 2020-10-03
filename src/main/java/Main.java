@@ -5,7 +5,7 @@ import java.util.Set;
 
 /**
  * Если args[0] = 0, то программа работает с мапой
- * Если args[1] = 1, то с объектомц
+ * Если args[1] = 1, то с объектом
  */
 public class Main {
     public static void main(String[] args) {
